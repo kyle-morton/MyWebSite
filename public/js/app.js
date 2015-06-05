@@ -1,4 +1,4 @@
-angular.module('mySiteApp', [])
+angular.module('mySiteApp', ['routerRoutes'])
 
   .controller('mainController', function () {
 
@@ -8,8 +8,13 @@ angular.module('mySiteApp', [])
 
       vm.message = "Hello, World!";
 
+      vm.email = "";
+
       console.log("After Creating Variables");
 
-  });
+      vm.joinNewsletter = function () {
+          alert("Email Entered: " + vm.email);
+          vm.email = "";
+      }
 
-alert("Hello, World");
+  });

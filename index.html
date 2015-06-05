@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -30,7 +30,7 @@
 
 </head>
 
-<body class="container" ng-app="mySiteApp" ng-controller="mainController as main">
+<body ng-app="mySiteApp" ng-controller="mainController as main">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
@@ -52,10 +52,13 @@
                         <a href="#home">Home</a>
                     </li>
                     <li>
-                        <a href="#about">About</a>
+                        <a href="/javaDev">Java Development</a>
                     </li>
                     <li>
-                        <a href="#projects">Projects</a>
+                        <a href="/webDev">Web Development</a>
+                    </li>
+                    <li>
+                      <a href="/about">About Me </a>
                     </li>
                     <li>
                         <a href="#contact">Contact</a>
@@ -70,7 +73,7 @@
 
     <!-- Header -->
     <a name="home"></a>
-    <div class="intro-header">
+    <div class="intro-header"  >
         <div class="container">
 
             <div class="row">
@@ -78,6 +81,7 @@
                     <div class="intro-message">
                         <h1>Kyle Morton</h1>
                         <h3>Software Developer</h3>
+                        <h3>{{ main.message}}
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
@@ -186,6 +190,18 @@
                         <li>
                             <a class="btn btn-default btn-lg" href="mailto:kylemortondevelopment@gmail.com"><span class="network-name">Email</span></a>
                         </li>
+                        <li>
+                          <form role="form" ng-submit="main.joinNewsletter()">
+                                <div class="form-group">
+                                  <label>Join My Newsletter: </label>
+                                  <input type="email" class="form-control" id="email"
+                                      ng-model="main.email">
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit</button>
+                              </form>
+
+                        </li>
+
                      </ul>
                 </div>
             </div>
@@ -195,6 +211,8 @@
 
     </div>
     <!-- /.banner -->
+
+    <div ng-view></div>
 
     <!-- Footer -->
     <footer>
